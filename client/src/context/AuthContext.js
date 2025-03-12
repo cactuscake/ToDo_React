@@ -43,7 +43,7 @@ export const AuthProvider = ({ children }) => {
     }
 
     const data = await response.json();
-    return data.user; // Предполагаем, что сервер возвращает данные пользователя
+    return data.user;
   };
 
   const login = (token, userData) => {

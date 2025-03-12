@@ -1,9 +1,9 @@
 const pool = require('../config/db');
 
 const createTask = async (taskData) => {
-  //console.log(taskData)
+
   const { title, description, dueDate, priority, status, creatorId, responsible } = taskData;
-  //console.log(responsible)
+
   const query = `
     INSERT INTO tasks (title, description, due_date, priority, status, creator_id, responsible_id)
     VALUES ($1, $2, $3, $4, $5, $6, $7)
