@@ -29,17 +29,6 @@ const TaskModal = ({ task, onClose }) => {
     fetchSubordinates();
   }, []);
 
-  // Проверка, создана ли задача руководителем
-  let isTaskCreatedByManager = true;
-  subordinates.map((subordinate) => {
-    console.log(subordinate.id);
-    if (task?.creatorId != subordinate?.id) {
-      isTaskCreatedByManager = false;
-    } else {
-      isTaskCreatedByManager = true;
-    }
-  });
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -76,7 +65,6 @@ const TaskModal = ({ task, onClose }) => {
           placeholder="Заголовок"
           value={formData.title}
           onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-          disabled={isTaskCreatedByManager && task}
         />
         <textarea
           placeholder="Описание"
@@ -84,7 +72,6 @@ const TaskModal = ({ task, onClose }) => {
           onChange={(e) =>
             setFormData({ ...formData, description: e.target.value })
           }
-          disabled={isTaskCreatedByManager && task}
         />
         <input
           type="date"
@@ -92,14 +79,12 @@ const TaskModal = ({ task, onClose }) => {
           onChange={(e) =>
             setFormData({ ...formData, dueDate: e.target.value })
           }
-          disabled={isTaskCreatedByManager && task}
         />
         <select
           value={formData.priority}
           onChange={(e) =>
             setFormData({ ...formData, priority: e.target.value })
           }
-          disabled={isTaskCreatedByManager && task}
         >
           <option value="высокий">Высокий</option>
           <option value="средний">Средний</option>
@@ -119,7 +104,6 @@ const TaskModal = ({ task, onClose }) => {
           onChange={(e) =>
             setFormData({ ...formData, responsible: e.target.value })
           }
-          disabled={isTaskCreatedByManager && task}
         >
           <option value="">Выберите ответственного</option>
           {subordinates.map((subordinate) => (

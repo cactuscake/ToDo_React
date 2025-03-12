@@ -23,3 +23,41 @@ li {
   padding: 10px;
   margin-top: 20px;
 }
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 25px;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+button {
+  margin: 10px 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  height: 44px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}
+button:hover {
+  background-color: #0056b3;
+}
+
+input {
+  height: 40px;
+}
+
+select {
+  height: 44px;
+}
+
+textarea {
+  height: 40px;
+}
